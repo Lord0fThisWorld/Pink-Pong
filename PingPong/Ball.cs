@@ -69,7 +69,7 @@ namespace PingPong
                     break;
                 case 1:
                     X += changeX;
-                   // Y += changeY;
+                    Y += changeY;
                     break;
             }
         }
