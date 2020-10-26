@@ -13,15 +13,16 @@ namespace PingPong
         // paddle Lenght
         public int Lenght { get; set; }
         // variable holding info about boardHeight (it depends on what is passed by constructor)
-        int boardHeight;
+        int boardHeight,boardWidth;
         /// <summary>
         /// constructor (sets initial paddle position)
         /// </summary>
         /// <param name="x">X distance from the edge</param>
         /// <param name="boardHeight"></param>
-        public Paddle(int x, int boardHeight)
+        public Paddle(int x, int boardHeight, int boardWidth)
         {
             this.boardHeight = boardHeight;
+            this.boardWidth = boardWidth;
             X = x;
             Y = boardHeight / 2;
             Lenght = boardHeight / 3;
@@ -34,8 +35,19 @@ namespace PingPong
             if ((Y - 1 - (Lenght / 2)) != 0)
             {
                 #region tail_cancell
-                Console.SetCursorPosition(X, (Y + (Lenght / 2)) - 1);
+                Console.SetCursorPosition(X, (Y + (Lenght / 2)));
                 Console.Write("\0");
+                //main rear part of the paddle
+                if (X > boardWidth / 2)
+                { //Right paddle
+                    Console.SetCursorPosition(X + 1, Y);
+                    Console.Write("\0");
+                }
+                else
+                { //Left paddle
+                    Console.SetCursorPosition(X - 1, Y);
+                    Console.Write("\0");
+                }
                 #endregion
                 Y--;
                 Write();
@@ -46,11 +58,22 @@ namespace PingPong
         /// </summary>
         public void Down()
         {
-            if ((Y + 1 + (Lenght / 2)) != boardHeight + 2)
+            if ((Y + 1 + (Lenght / 2)) != boardHeight + 1)
             {
                 #region tail_cancell
                 Console.SetCursorPosition(X, (Y - (Lenght / 2)));
                 Console.Write("\0");
+                //main rear part of the paddle
+                if (X > boardWidth / 2)
+                { //Right paddle
+                    Console.SetCursorPosition(X + 1, Y);
+                    Console.Write("\0");
+                }
+                else
+                { //Left paddle
+                    Console.SetCursorPosition(X - 1, Y);
+                    Console.Write("\0");
+                }
                 #endregion
                 Y++;
                 Write();
@@ -62,10 +85,20 @@ namespace PingPong
         public void Write()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            for (int i = (Y - (Lenght / 2)); i < (Y + (Lenght / 2)); i++)
+            for (int i = (Y - (Lenght / 2)); i <= (Y + (Lenght / 2)); i++)
             {
                 Console.SetCursorPosition(X, i);
                 Console.Write("█");
+            }
+            if (X > boardWidth/2)
+            { //Right paddle
+                Console.SetCursorPosition(X + 1, Y);
+                Console.Write("-");
+            }
+            else
+            { //Left paddle
+                Console.SetCursorPosition(X - 1, Y);
+                Console.Write("-");
             }
             Console.ForegroundColor = ConsoleColor.White;
         }

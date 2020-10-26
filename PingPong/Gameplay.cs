@@ -38,8 +38,8 @@ namespace PingPong
         /// </summary>
         public void Setup()
         {
-            paddle1 = new Paddle(2, height);
-            paddle2 = new Paddle(width - 1, height);
+            paddle1 = new Paddle(2, height,width);
+            paddle2 = new Paddle(width - 1, height,width);
             keyInfo = new ConsoleKeyInfo();
             consoleKey = new ConsoleKey();
             ball.X = width / 2;

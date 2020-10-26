@@ -47,8 +47,8 @@ namespace PingPong
             {
                 changeY *= -1;
             }
-            // if ball it's hitting the paddle, so it is on X corresponding to paddle and its Y value is in range of paddle size
-            if ((X == 3 || X == boardWidth - 2) && (paddle1.Y - (paddle1.Lenght / 2)) <= Y && (paddle1.Y + (paddle1.Lenght / 2)) > Y)
+            // "hit event" if ball it's hitting the paddle, so it is on X corresponding to paddle and its Y value is in range of paddle size
+            if ((X == 3 || X == boardWidth - 2) && (paddle1.Y - (paddle1.Lenght / 2)) <= Y && (paddle1.Y + (paddle1.Lenght / 2)) >= Y)
             {
                 //checking if it's a direct hit, to stop or start Y movement
                 changeX *= -1;
@@ -69,7 +69,7 @@ namespace PingPong
                     break;
                 case 1:
                     X += changeX;
-                    Y += changeY;
+                   // Y += changeY;
                     break;
             }
         }

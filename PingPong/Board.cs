@@ -33,6 +33,7 @@ namespace PingPong
         /// </summary>
         public void Write()
         {
+            #region normal_board
             for (int i = 0; i <= Width; i++)
             {
                 Console.SetCursorPosition(i, 0);
@@ -62,6 +63,7 @@ namespace PingPong
             Console.Write("└");
             Console.SetCursorPosition(Width + 1, Height + 1);
             Console.Write("┘");
+            #endregion
         }
     }
 }

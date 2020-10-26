@@ -22,5 +22,3 @@ namespace PingPong
         }
     }
 }
-
-// ZROBIĆ - w pętli głównej też sprawdzanie rozmiaru okienka i zmienianie go jeżeli jest inny
