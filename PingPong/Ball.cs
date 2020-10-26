@@ -36,8 +36,10 @@ namespace PingPong
         /// </summary>
         /// <param name="paddle1"></param>
         /// <param name="paddle2"></param>
-        public void Physics(Paddle paddle1, Paddle paddle2)
+        public bool Physics(Paddle paddle1, Paddle paddle2)
         {
+            //true if hit
+            bool hit;
             // sets cursor position to ball coordinates, 1st their passed by constructor
             Console.SetCursorPosition(X, Y);
             // writes null value to where ball is now (to draw it later) (to avoid snake effect)
@@ -50,6 +52,7 @@ namespace PingPong
             // "hit event" if ball it's hitting the paddle, so it is on X corresponding to paddle and its Y value is in range of paddle size
             if ((X == 3 || X == boardWidth - 2) && (paddle1.Y - (paddle1.Lenght / 2)) <= Y && (paddle1.Y + (paddle1.Lenght / 2)) >= Y)
             {
+                hit = true;
                 //checking if it's a direct hit, to stop or start Y movement
                 changeX *= -1;
                 if (Y == paddle1.Y)
@@ -60,7 +63,11 @@ namespace PingPong
                 {
                     Direction = 1;
                 }
-            //performs movement (also turns on and off y movement depending on how paddle was hit - variable Direction)
+                //performs movement (also turns on and off y movement depending on how paddle was hit - variable Direction)
+            }
+            else
+            {
+                hit = false;
             }
             switch (Direction)
             {
@@ -72,6 +79,7 @@ namespace PingPong
                     Y += changeY;
                     break;
             }
+            return hit;
         }
         /// <summary>
         /// Ball printing

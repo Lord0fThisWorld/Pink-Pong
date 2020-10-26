@@ -8,6 +8,7 @@ namespace PingPong
     /// </summary>
     class Gameplay
     {
+        ScoreCounter scoreCounter;
         // variables that holds dimensions to the time when board is created (they are passed to boards creator)
         int width, height;
         // board variable
@@ -38,13 +39,14 @@ namespace PingPong
         /// </summary>
         public void Setup()
         {
-            paddle1 = new Paddle(2, height,width);
-            paddle2 = new Paddle(width - 1, height,width);
+            paddle1 = new Paddle(2, height, width);
+            paddle2 = new Paddle(width - 1, height, width);
             keyInfo = new ConsoleKeyInfo();
             consoleKey = new ConsoleKey();
             ball.X = width / 2;
             ball.Y = height / 2;
             ball.Direction = 0;
+            scoreCounter = new ScoreCounter();
         }
         /// <summary>
         /// If a key is pressed saves the key to a variable
@@ -55,7 +57,7 @@ namespace PingPong
             {
                 keyInfo = Console.ReadKey(true);
                 consoleKey = keyInfo.Key;
-            }    
+            }
         }
         /// <summary>
         /// Main loop responsible for the gameplay sentence (reading input, coputing and printing output in the right sequence)
@@ -71,7 +73,7 @@ namespace PingPong
                 paddle1.Write();
                 paddle2.Write();
                 ball.Write();
-                //runs until ball missed the paddle - end of a round
+                //GAME LOOP - runs until ball missed the paddle - end of a round
                 while (ball.X != 1 && ball.X != width - 1)
                 {
                     // reads input key
@@ -91,9 +93,13 @@ namespace PingPong
                     // resets consoleKey variable value so pressing W or S does not make it go up the way up or down but only makes one move
                     consoleKey = ConsoleKey.A;
                     // method responsible for propper ball movement
-                    ball.Physics(paddle1, paddle2);
+                    if (ball.Physics(paddle1, paddle2))
+                    {
+                        scoreCounter.score++;
+                    }
                     // method responsible for printing the ball graphical interpretations
                     ball.Write();
+                    scoreCounter.Write(width);
                     // determines time intervals in which ball is moving by stopping whole program for a while, also prevents blinking of the whole content
                     Thread.Sleep(100);
                 }
