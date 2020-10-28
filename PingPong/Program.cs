@@ -9,15 +9,16 @@ namespace PingPong
             #region initial_settings
             // necessary to be able to display graphical symbols in game
             Console.OutputEncoding = System.Text.Encoding.Unicode;
-            // sets window size to fit the board
-            Console.SetWindowSize(62, 22);
-            Console.SetBufferSize(62, 22);
             // just for visual purposes it looks better when console cursor is not visible somewhere during the game
             Console.CursorVisible = false;
-            // creates new instance of game objects
-            Gameplay gameplay = new Gameplay(60, 20);
-            // starts gameplay loop
             #endregion
+            // creates new instance of welcome screen
+            WelcomeScreen welcomeScreen = new WelcomeScreen();
+            // runs welcome screen as a first visible user screen
+            welcomeScreen.Screen();
+            // creates new instance of game objects
+            Gameplay gameplay = new Gameplay(61, 20);
+            // starts gameplay loop
             gameplay.Run();
         }
     }
