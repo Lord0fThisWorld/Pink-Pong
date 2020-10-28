@@ -6,6 +6,7 @@ namespace PingPong
 {
     class ScoreCounter
     {
+        // Counts paddle hits
         public int score { get; set; }
         public ScoreCounter()
         {
