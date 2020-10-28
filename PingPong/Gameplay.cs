@@ -6,7 +6,7 @@ namespace PingPong
     /// <summary>
     /// General class that creates and manipulates other game objects
     /// </summary>
-    class Gameplay
+    class Gameplay : UserInputReader
     {
         ScoreCounter scoreCounter;
         // variables that holds dimensions to the time when board is created (they are passed to boards creator)
@@ -15,9 +15,6 @@ namespace PingPong
         Board board;
         // paddle variables
         Paddle paddle1, paddle2;
-        // pressed key variable
-        ConsoleKeyInfo keyInfo;
-        ConsoleKey consoleKey;
         Ball ball;
         /// <summary>
         /// Constructor (needs to get width and height to configure other properties)
@@ -47,17 +44,6 @@ namespace PingPong
             ball.Y = height / 2;
             ball.Direction = 0;
             scoreCounter = new ScoreCounter();
-        }
-        /// <summary>
-        /// If a key is pressed saves the key to a variable
-        /// </summary>
-        void Input()
-        {
-            if (Console.KeyAvailable)
-            {
-                keyInfo = Console.ReadKey(true);
-                consoleKey = keyInfo.Key;
-            }
         }
         /// <summary>
         /// Main loop responsible for the gameplay sentence (reading input, coputing and printing output in the right sequence)

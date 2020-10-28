@@ -3,12 +3,9 @@ using System.Threading;
 
 namespace PingPong
 {
-    class WelcomeScreen
+    class WelcomeScreen : UserInputReader
     {
-        //required for input method
-        ConsoleKeyInfo keyInfo = new ConsoleKeyInfo();
-        ConsoleKey consoleKey = new ConsoleKey();
-        //Clock Beginning
+        //Time processing variables, essential for creating time related events
         DateTime startupDate;
         TimeSpan mainClock;
         //Startup dimensions
@@ -382,13 +379,5 @@ namespace PingPong
             Console.Write(font);
         }
         #endregion
-        private void Input()
-        {
-            if (Console.KeyAvailable)
-            {
-                keyInfo = Console.ReadKey(true);
-                consoleKey = keyInfo.Key;
-            }
-        }
     }
 }
