@@ -46,7 +46,7 @@ namespace PingPong
                     Console.Write("TO ");
                     Console.ForegroundColor = ConsoleColor.Magenta;
                     Console.Write("PINK");
-                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.ResetColor();
                     Console.Write("-PONG 2020");
                 }
                 else
