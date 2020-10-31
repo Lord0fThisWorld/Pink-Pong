@@ -15,17 +15,23 @@ namespace PingPong
             this.resolution = resolution;
             this.gameSpeed = gameSpeed;
         }
+        // screen navigation variable
         protected int index = 1;
+        // settings properties variables
         protected int resolution = 1;
         protected int gameSpeed = 1;
         public void Screen(int width, int height)
         {
+            // necessary for relative content positioning
             int xStart = ((width + 2) - 57) / 2;
             int yStart = ((height + 2) - 18) / 2;
+            // necessary for calculating time span for other methods
             startupDate = DateTime.Now;
+            // outer frame takes whole space avaliable
             OuterFrameDraw(width, height, '▓');
+            // inner frame is fixed size and it is positioned relatively to outer frame
             InnerFrameDraw(xStart, yStart, '▒');
-            // settings page grapghical theme
+            // drawing settings page grapghical theme
             BookDraw(xStart + 10,yStart + 1);
             consoleKey = ConsoleKey.A;
             while (consoleKey != ConsoleKey.Enter || index < 3)

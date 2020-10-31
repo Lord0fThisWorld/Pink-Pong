@@ -6,6 +6,7 @@ namespace PingPong
     {
         protected ConsoleKeyInfo keyInfo = new ConsoleKeyInfo();
         protected ConsoleKey consoleKey = new ConsoleKey();
+        // listens for user input
         protected void Input()
         {
             if (Console.KeyAvailable)

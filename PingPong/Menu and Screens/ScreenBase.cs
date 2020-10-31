@@ -4,8 +4,9 @@ using System.Text;
 
 namespace PingPong
 {
-    class ScreenBase : UserInputReader
+    abstract class ScreenBase : UserInputReader
     {
+        // almost every screen has time dependant content, so these are essential
         protected DateTime startupDate;
         protected TimeSpan mainClock;
         #region frames drawing
@@ -309,6 +310,7 @@ namespace PingPong
             Console.Write(font);
         }
         #endregion
+        #region ascii drawings
         protected void AlienSpaceshipDraw(int x,int y)
         {
             string[] alienSpaceship = { "                _____",
@@ -478,5 +480,6 @@ namespace PingPong
                 Console.Write(book[i]);
             }
         }
+        #endregion
     }
 }
