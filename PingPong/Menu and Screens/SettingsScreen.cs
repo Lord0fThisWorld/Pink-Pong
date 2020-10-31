@@ -6,7 +6,7 @@ namespace PingPong
     class SettingsScreen : ScreenBase
     {
         /// <summary>
-        /// 
+        /// Needs to get "initial" values
         /// </summary>
         /// <param name="resolution">1 - 4</param>
         /// <param name="gameSpeed">1 - 2</param>
@@ -20,11 +20,13 @@ namespace PingPong
         protected int gameSpeed = 1;
         public void Screen(int width, int height)
         {
+            int xStart = ((width + 2) - 57) / 2;
+            int yStart = ((height + 2) - 18) / 2;
             startupDate = DateTime.Now;
             OuterFrameDraw(width, height, '▓');
-            InnerFrameDraw(3, 2, '▒');
+            InnerFrameDraw(xStart, yStart, '▒');
             // settings page grapghical theme
-            BookDraw(13, 3);
+            BookDraw(xStart + 10,yStart + 1);
             consoleKey = ConsoleKey.A;
             while (consoleKey != ConsoleKey.Enter || index < 3)
             {
@@ -33,90 +35,90 @@ namespace PingPong
                 #region RESOLUTION
                 if (index == 1)
                 {
-                    Console.SetCursorPosition(18, 6);
+                    Console.SetCursorPosition(xStart + 15,yStart  + 4);
                     Console.Write("          ");
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
-                    Console.SetCursorPosition(18, 6);
+                    Console.SetCursorPosition(xStart + 15,yStart + 4);
                     Console.Write("RESOLUTION");
                     Console.ResetColor();
                 }
                 else
                 {
-                    Console.SetCursorPosition(18, 6);
+                    Console.SetCursorPosition(xStart + 15,yStart + 4);
                     Console.Write("          ");
-                    Console.SetCursorPosition(18, 6);
+                    Console.SetCursorPosition(xStart + 15,yStart + 4);
                     Console.Write("RESOLUTION");
                 }
                 if (resolution == 1)
                 {
-                    Console.SetCursorPosition(37, 6);
+                    Console.SetCursorPosition(xStart + 34,yStart + 4);
                     Console.Write("      ");
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.SetCursorPosition(37, 6);
+                    Console.SetCursorPosition(xStart + 34,yStart + 4);
                     Console.Write("NORMAL");
                     Console.ResetColor();
                 }
                 else
                 {
-                    Console.SetCursorPosition(37, 6);
+                    Console.SetCursorPosition(xStart + 34,yStart + 4);
                     Console.Write("      ");
                     Console.ForegroundColor = ConsoleColor.DarkGray;
-                    Console.SetCursorPosition(37, 6);
+                    Console.SetCursorPosition(xStart + 34,yStart + 4);
                     Console.Write("normal");
                     Console.ResetColor();
                 }
                 if (resolution == 2)
                 {
-                    Console.SetCursorPosition(37, 7);
+                    Console.SetCursorPosition(xStart + 34,yStart + 5);
                     Console.Write("    ");
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.SetCursorPosition(37, 7);
+                    Console.SetCursorPosition(xStart + 34,yStart + 5);
                     Console.Write("WIDE");
                     Console.ResetColor();
                 }
                 else
                 {
-                    Console.SetCursorPosition(37, 7);
+                    Console.SetCursorPosition(xStart + 34,yStart + 5);
                     Console.Write("    ");
                     Console.ForegroundColor = ConsoleColor.DarkGray;
-                    Console.SetCursorPosition(37, 7);
+                    Console.SetCursorPosition(xStart + 34,yStart + 5);
                     Console.Write("wide");
                     Console.ResetColor();
                 }
                 if (resolution == 3)
                 {
-                    Console.SetCursorPosition(37, 8);
+                    Console.SetCursorPosition(xStart + 34,yStart + 6);
                     Console.Write("    ");
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.SetCursorPosition(37, 8);
+                    Console.SetCursorPosition(xStart + 34,yStart + 6);
                     Console.Write("HIGH");
                     Console.ResetColor();
                 }
                 else
                 {
-                    Console.SetCursorPosition(37, 8);
+                    Console.SetCursorPosition(xStart + 34,yStart + 6);
                     Console.Write("    ");
                     Console.ForegroundColor = ConsoleColor.DarkGray;
-                    Console.SetCursorPosition(37, 8);
+                    Console.SetCursorPosition(xStart + 34,yStart + 6);
                     Console.Write("high");
                     Console.ResetColor();
                 }
                 if (resolution == 4)
                 {
-                    Console.SetCursorPosition(37, 9);
+                    Console.SetCursorPosition(xStart + 34,yStart + 7);
                     Console.Write("   ");
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.SetCursorPosition(37, 9);
+                    Console.SetCursorPosition(xStart + 34,yStart + 7);
                     Console.Write("BIG");
                     Console.ResetColor();
                 }
                 else
                 {
-                    Console.SetCursorPosition(37, 9);
+                    Console.SetCursorPosition(xStart + 34,yStart + 7);
                     Console.Write("   ");
                     Console.ForegroundColor = ConsoleColor.DarkGray;
-                    Console.SetCursorPosition(37, 9);
+                    Console.SetCursorPosition(xStart + 34,yStart + 7);
                     Console.Write("big");
                     Console.ResetColor();
                 }
@@ -124,54 +126,54 @@ namespace PingPong
                 #region GAME SPEED
                 if (index == 2)
                 {
-                    Console.SetCursorPosition(18, 11);
+                    Console.SetCursorPosition(xStart + 15,yStart + 9);
                     Console.Write("          ");
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
-                    Console.SetCursorPosition(18, 11);
+                    Console.SetCursorPosition(xStart + 15,yStart + 9);
                     Console.Write("GAME SPEED");
                     Console.ResetColor();
                 }
                 else
                 {
-                    Console.SetCursorPosition(18, 11);
+                    Console.SetCursorPosition(xStart + 15,yStart + 9);
                     Console.Write("          ");
-                    Console.SetCursorPosition(18, 11);
+                    Console.SetCursorPosition(xStart + 15,yStart + 9);
                     Console.Write("GAME SPEED");
                 }
                 if (gameSpeed == 1)
                 {
-                    Console.SetCursorPosition(37, 11);
+                    Console.SetCursorPosition(xStart + 34,yStart + 9);
                     Console.Write("      ");
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.SetCursorPosition(37, 11);
+                    Console.SetCursorPosition(xStart + 34,yStart + 9);
                     Console.Write("NORMAL");
                     Console.ResetColor();
                 }
                 else
                 {
-                    Console.SetCursorPosition(37, 11);
+                    Console.SetCursorPosition(xStart + 34,yStart + 9);
                     Console.Write("      ");
                     Console.ForegroundColor = ConsoleColor.DarkGray;
-                    Console.SetCursorPosition(37, 11);
+                    Console.SetCursorPosition(xStart + 34,yStart + 9);
                     Console.Write("normal");
                     Console.ResetColor();
                 }
                 if (gameSpeed == 2)
                 {
-                    Console.SetCursorPosition(37, 12);
+                    Console.SetCursorPosition(xStart + 34,yStart + 10);
                     Console.Write("    ");
                     Console.ForegroundColor = ConsoleColor.Green;
-                    Console.SetCursorPosition(37, 12);
+                    Console.SetCursorPosition(xStart + 34,yStart + 10);
                     Console.Write("FAST");
                     Console.ResetColor();
                 }
                 else
                 {
-                    Console.SetCursorPosition(37, 12);
+                    Console.SetCursorPosition(xStart + 34,yStart + 10);
                     Console.Write("    ");
                     Console.ForegroundColor = ConsoleColor.DarkGray;
-                    Console.SetCursorPosition(37, 12);
+                    Console.SetCursorPosition(xStart + 34,yStart + 10);
                     Console.Write("fast");
                     Console.ResetColor();
                 }
@@ -179,19 +181,19 @@ namespace PingPong
                 #region EXIT
                 if (index == 3)
                 {
-                    Console.SetCursorPosition(21, 14);
+                    Console.SetCursorPosition(xStart + 18,yStart + 12);
                     Console.Write("    ");
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
-                    Console.SetCursorPosition(21, 14);
+                    Console.SetCursorPosition(xStart + 18,yStart + 12);
                     Console.Write("EXIT");
                     Console.ResetColor();
                 }
                 else
                 {
-                    Console.SetCursorPosition(21, 14);
+                    Console.SetCursorPosition(xStart + 18,yStart + 12);
                     Console.Write("    ");
-                    Console.SetCursorPosition(21, 14);
+                    Console.SetCursorPosition(xStart + 18,yStart + 12);
                     Console.Write("EXIT");
                 }
                 #endregion
