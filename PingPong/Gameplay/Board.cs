@@ -33,28 +33,37 @@ namespace PingPong
         /// </summary>
         public void Write()
         {
-            #region normal_board
+            // prints board edges
+            #region horizontal lines
+            // up from left to right
             for (int i = 0; i <= Width; i++)
             {
                 Console.SetCursorPosition(i, 0);
                 Console.Write("─");
             }
+            // down from left to right
             for (int i = 0; i <= Width; i++)
             {
                 Console.SetCursorPosition(i, (Height + 1));
                 Console.Write("─");
             }
+            #endregion
+            #region vertical lines
+            // left from top to bottom
             for (int i = 0; i <= Height; i++)
             {
                 Console.SetCursorPosition(0, i);
                 Console.Write("│");
             }
+            // right from top to bottom
             for (int i = 0; i <= Height; i++)
             {
                 Console.SetCursorPosition((Width + 1), i);
                 Console.Write("│");
             }
-
+            #endregion
+            #region edges
+            // draws board edges
             Console.SetCursorPosition(0, 0);
             Console.Write("┌");
             Console.SetCursorPosition(Width + 1, 0);

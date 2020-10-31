@@ -50,46 +50,54 @@ namespace PingPong
         /// </summary>
         public void Run()
         {
-            //this loop is responsible for starting a new game immidiately after loosing previous one
-            while (true)
+            Console.Clear();
+            Setup();
+            board.Write();
+            paddle1.Write();
+            paddle2.Write();
+            ball.Write();
+            //GAME LOOP - runs until ball missed the paddle - end of a round
+            while (ball.X != 1 && ball.X != width - 1)
             {
-                Console.Clear();
-                Setup();
-                board.Write();
-                paddle1.Write();
-                paddle2.Write();
-                ball.Write();
-                //GAME LOOP - runs until ball missed the paddle - end of a round
-                while (ball.X != 1 && ball.X != width - 1)
+                // reads input key
+                Input();
+                //depending on key value performs a specific action
+                switch (consoleKey)
                 {
-                    // reads input key
-                    Input();
-                    //depending on key valuee performs a specific action
-                    switch (consoleKey)
-                    {
-                        case ConsoleKey.W:
-                            paddle1.Up();
-                            paddle2.Up();
-                            break;
-                        case ConsoleKey.S:
-                            paddle1.Down();
-                            paddle2.Down();
-                            break;
-                    }
-                    // resets consoleKey variable value so pressing W or S does not make it go up the way up or down but only makes one move
-                    consoleKey = ConsoleKey.A;
-                    // method responsible for propper ball movement
-                    if (ball.Physics(paddle1, paddle2))
-                    {
-                        scoreCounter.score++;
-                    }
-                    // method responsible for printing the ball graphical interpretations
-                    ball.Write();
-                    scoreCounter.Write(width);
-                    // determines time intervals in which ball is moving by stopping whole program for a while, also prevents blinking of the whole content
-                    Thread.Sleep(100);
+                    case ConsoleKey.W:
+                        paddle1.Up();
+                        paddle2.Up();
+                        break;
+                    case ConsoleKey.UpArrow:
+                        paddle1.Up();
+                        paddle2.Up();
+                        break;
+                    case ConsoleKey.S:
+                        paddle1.Down();
+                        paddle2.Down();
+                        break;
+                    case ConsoleKey.DownArrow:
+                        paddle1.Down();
+                        paddle2.Down();
+                        break;
                 }
+                // resets consoleKey variable value so pressing W or S does not make it go up the way up or down but only makes one move
+                consoleKey = ConsoleKey.A;
+                // method responsible for propper ball movement
+                if (ball.Physics(paddle1, paddle2))
+                {
+                    scoreCounter.score++;
+                }
+                // method responsible for printing the ball graphical interpretations
+                ball.Write();
+                // prints score counter in the middle of the screen
+                scoreCounter.Write(width);
+                // determines time intervals in which ball is moving by stopping whole program for a while, also prevents blinking of the whole content
+                Thread.Sleep(100);
             }
+            Console.Clear();
+            GameOverScreen gameOverScreen = new GameOverScreen();
+            gameOverScreen.Screen(width, height, scoreCounter.score);
         }
     }
 }
