@@ -32,12 +32,12 @@ namespace PingPong
             ball = new Ball(width / 2, height / 2, height, width);
         }
         /// <summary>
-        /// Mehtod responsible for configuring paddles up on the board
+        /// initial gameplay setup
         /// </summary>
         public void Setup()
         {
-            paddle1 = new Paddle(2, height, width);
-            paddle2 = new Paddle(width - 1, height, width);
+            paddle1 = new Paddle(2, height, width,6);
+            paddle2 = new Paddle(width - 1, height, width,6);
             keyInfo = new ConsoleKeyInfo();
             consoleKey = new ConsoleKey();
             ball.X = width / 2;

@@ -19,13 +19,13 @@ namespace PingPong
         /// </summary>
         /// <param name="x">X distance from the edge</param>
         /// <param name="boardHeight"></param>
-        public Paddle(int x, int boardHeight, int boardWidth)
+        public Paddle(int x, int boardHeight, int boardWidth,int paddleLength)
         {
             this.boardHeight = boardHeight;
             this.boardWidth = boardWidth;
             X = x;
             Y = boardHeight / 2;
-            Lenght = boardHeight / 3;
+            Lenght = 1 + paddleLength;
         }
         /// <summary>
         /// method responsible for moving tha paddle up and stopping it when it reaches the limit
