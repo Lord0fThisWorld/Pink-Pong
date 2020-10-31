@@ -40,10 +40,16 @@ namespace PingPong
             }
             #endregion
         }
+        /// <summary>
+        /// Width 57 Height 18 with frame (inside space without frame -2)
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="font"></param>
         protected void InnerFrameDraw(int x, int y, char font)
         {
             #region horizontal Lines
-            // Up from left to right (frame width is 55)(inside 53)
+            // Up from left to right
             for (int i = x + 1; i < x + 56; i++)
             {
                 Console.SetCursorPosition(i, y);

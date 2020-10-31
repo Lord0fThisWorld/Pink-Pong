@@ -8,93 +8,94 @@ namespace PingPong
         protected int index = 1;
         public int Screen(int width, int height)
         {
-            //27+1 is inner frame center size, frame starts at x = 2, inner frame width = 55
+            int xStart = ((width + 2) - 57) / 2;
+            int yStart = ((height + 2) - 18) / 2;
             OuterFrameDraw(width, height, '▓');
-            InnerFrameDraw(3, 2, '▒');              //coordinates needs modification for resizing
-            Console.SetCursorPosition(12, 4);   //coordinates needs modification for resizing
+            InnerFrameDraw(xStart, yStart, '▒');
+            Console.SetCursorPosition(xStart + 9,yStart + 2);
             Console.Write("use: WS or up/down arrow keys to browse");
-            Console.SetCursorPosition(21, 6);
+            Console.SetCursorPosition(xStart + 18,yStart + 4);
             Console.Write("press ENTER to select");
             while (consoleKey != ConsoleKey.Enter)
             {
                 #region START GAME
                 if (index == 1)
                 {
-                    Console.SetCursorPosition(25, 10);
+                    Console.SetCursorPosition(xStart + 22,yStart + 8);
                     Console.Write("             ");
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
-                    Console.SetCursorPosition(27, 10);
+                    Console.SetCursorPosition(xStart + 24,yStart + 8);
                     Console.Write("START GAME");
                     Console.ResetColor();
                 }
                 else
                 {
-                    Console.SetCursorPosition(25, 10);
+                    Console.SetCursorPosition(xStart + 22,yStart + 8);
                     Console.Write("             ");
-                    Console.SetCursorPosition(26, 10);
+                    Console.SetCursorPosition(xStart + 23,yStart + 8);
                     Console.Write("START GAME");
                 }
                 #endregion
                 #region HOW TO PLAY
                 if (index == 2)
                 {
-                    Console.SetCursorPosition(25, 12);
+                    Console.SetCursorPosition(xStart + 22,yStart + 10);
                     Console.Write("             ");
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
-                    Console.SetCursorPosition(27, 12);
+                    Console.SetCursorPosition(xStart + 24,yStart + 10);
                     Console.Write("HOW TO PLAY");
                     Console.ResetColor();
                 }
                 else
                 {
-                    Console.SetCursorPosition(25, 12);
+                    Console.SetCursorPosition(xStart + 22,yStart + 10);
                     Console.Write("             ");
-                    Console.SetCursorPosition(26, 12);
+                    Console.SetCursorPosition(xStart + 23,yStart + 10);
                     Console.Write("HOW TO PLAY");
                 }
                 #endregion
                 #region SETTINGS
                 if (index ==3)
                 {
-                    Console.SetCursorPosition(25, 14);
+                    Console.SetCursorPosition(xStart + 22,yStart + 12);
                     Console.Write("             ");
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
-                    Console.SetCursorPosition(27, 14);
+                    Console.SetCursorPosition(xStart + 24,yStart + 12);
                     Console.Write("SETTINGS");
                     Console.ResetColor();
                 }
                 else
                 {
-                    Console.SetCursorPosition(25, 14);
+                    Console.SetCursorPosition(xStart + 22,yStart + 12);
                     Console.Write("             ");
-                    Console.SetCursorPosition(26, 14);
+                    Console.SetCursorPosition(xStart + 23,yStart + 12);
                     Console.Write("SETTINGS");
                 }
                 #endregion
                 #region QUIT
                 if (index == 4)
                 {
-                    Console.SetCursorPosition(25, 16);
+                    Console.SetCursorPosition(xStart + 22,yStart + 14);
                     Console.Write("             ");
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
-                    Console.SetCursorPosition(27, 16);
+                    Console.SetCursorPosition(xStart + 24,yStart + 14);
                     Console.Write("QUIT");
                     Console.ResetColor();
                 }
                 else
                 {
-                    Console.SetCursorPosition(25, 16);
+                    Console.SetCursorPosition(xStart + 22,yStart + 14);
                     Console.Write("             ");
-                    Console.SetCursorPosition(26, 16);
+                    Console.SetCursorPosition(xStart + 23,yStart + 14);
                     Console.Write("QUIT");
                 }
                 #endregion
-                ScientistLeftDraw(5,6);
-                ScientistRightDraw(42,6);
+                ScientistLeftDraw(xStart + 2,yStart + 4);
+                ScientistRightDraw(xStart + 39,yStart + 4);
                 if (consoleKey == ConsoleKey.UpArrow || consoleKey == ConsoleKey.W)
                 {
                     Up();
