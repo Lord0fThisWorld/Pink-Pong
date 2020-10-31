@@ -5,23 +5,15 @@ namespace PingPong
 {
     class SettingsScreen : ScreenBase
     {
-        /// <summary>
-        /// Needs to get "initial" values
-        /// </summary>
-        /// <param name="resolution">1 - 4</param>
-        /// <param name="gameSpeed">1 - 2</param>
-        public SettingsScreen(int resolution, int gameSpeed)
-        {
-            this.resolution = resolution;
-            this.gameSpeed = gameSpeed;
-        }
         // screen navigation variable
         protected int index = 1;
         // settings properties variables
         protected int resolution = 1;
         protected int gameSpeed = 1;
-        public void Screen(int width, int height)
+        public int Screen(int width, int height,int temp)
         {
+            resolution = temp / 100;
+            gameSpeed = (temp - (temp / 100) * 100) / 10;
             // necessary for relative content positioning
             int xStart = ((width + 2) - 57) / 2;
             int yStart = ((height + 2) - 18) / 2;
@@ -187,20 +179,20 @@ namespace PingPong
                 #region EXIT
                 if (index == 3)
                 {
-                    Console.SetCursorPosition(xStart + 18,yStart + 12);
-                    Console.Write("    ");
+                    Console.SetCursorPosition(xStart + 15,yStart + 12);
+                    Console.Write("           ");
                     Console.BackgroundColor = ConsoleColor.Gray;
                     Console.ForegroundColor = ConsoleColor.Black;
-                    Console.SetCursorPosition(xStart + 18,yStart + 12);
-                    Console.Write("EXIT");
+                    Console.SetCursorPosition(xStart + 15,yStart + 12);
+                    Console.Write("SAVE & EXIT");
                     Console.ResetColor();
                 }
                 else
                 {
-                    Console.SetCursorPosition(xStart + 18,yStart + 12);
-                    Console.Write("    ");
-                    Console.SetCursorPosition(xStart + 18,yStart + 12);
-                    Console.Write("EXIT");
+                    Console.SetCursorPosition(xStart + 15,yStart + 12);
+                    Console.Write("           ");
+                    Console.SetCursorPosition(xStart + 15,yStart + 12);
+                    Console.Write("SAVE & EXIT");
                 }
                 #endregion
                 // resolution switching logic
@@ -245,6 +237,7 @@ namespace PingPong
             }
             // screen must be cleaned before other screens/gameplay
             Console.Clear();
+            return ((resolution * 10) + gameSpeed)*10;
         }
         // navigation logic
         protected void Up()

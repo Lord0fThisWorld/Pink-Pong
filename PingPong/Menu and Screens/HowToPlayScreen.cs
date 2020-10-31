@@ -6,7 +6,7 @@ namespace PingPong
 {
     class HowToPlayScreen : ScreenBase
     {
-        public void Screen(int width, int height)
+        public int Screen(int width, int height,int temp)
         {
             // necessary for relative content positioning
             int xStart = ((width + 2) - 57) / 2;
@@ -58,13 +58,13 @@ namespace PingPong
                 #endregion
                 #region side lines
                 // left from top to bottom
-                for (int i = yStart + 2; i < 18; i++)
+                for (int i = yStart + 2; i < yStart + 15; i++)
                 {
                     Console.SetCursorPosition(xStart + 3, i);
                     Console.Write("│");
                 }
                 // right from top to bottom
-                for (int i = yStart + 2; i < 18; i++)
+                for (int i = yStart + 2; i < yStart + 15; i++)
                 {
                     Console.SetCursorPosition(xStart + 53, i);
                     Console.Write("│");
@@ -73,6 +73,7 @@ namespace PingPong
                 Input();
             }
             Console.Clear();
+            return ((temp / 10) * 10);
         }
     }
 }

@@ -48,7 +48,7 @@ namespace PingPong
         /// <summary>
         /// Main loop responsible for the gameplay sentence (reading input, coputing and printing output in the right sequence)
         /// </summary>
-        public void Run()
+        public int Run(int temp)
         {
             Console.Clear();
             Setup();
@@ -98,6 +98,7 @@ namespace PingPong
             Console.Clear();
             GameOverScreen gameOverScreen = new GameOverScreen();
             gameOverScreen.Screen(width, height, scoreCounter.score);
+            return ((temp / 10) * 10);
         }
     }
 }

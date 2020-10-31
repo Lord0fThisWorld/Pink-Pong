@@ -7,7 +7,7 @@ namespace PingPong
     {
         // necessary for menu navigation
         protected int index = 1;
-        public int Screen(int width, int height)
+        public int Screen(int width, int height,int temp)
         {
             // necessary for relative content positioning
             int xStart = ((width + 2) - 57) / 2;
@@ -121,7 +121,7 @@ namespace PingPong
             }
             consoleKey = ConsoleKey.A;
             Console.Clear();
-            return index;
+            return ((temp/10)*10)+index;
         }
         protected void Up()
         {
