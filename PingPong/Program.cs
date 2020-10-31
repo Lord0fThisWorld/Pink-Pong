@@ -5,6 +5,7 @@ namespace PingPong
 {
     class Program
     {
+        // 4 avaliable app resolutions
         enum dimensions
         {
             regularWidth = 61,
@@ -28,38 +29,43 @@ namespace PingPong
             int index = 0;
             while(index != 5)
             {
+                // main menu 0 0
                 if (index == 0)
                 {
                     MainMenu mainMenu = new MainMenu();
                     index = mainMenu.Screen((int)dimensions.regularWidth,(int)dimensions.regularHeight);
                 }
+                // gameplay 0 0
                 else if (index == 1)
                 {
-                    Gameplay gameplay = new Gameplay(61, 20);
+                    Gameplay gameplay = new Gameplay((int)dimensions.regularWidth, (int)dimensions.regularHeight);
                     gameplay.Run();
                     index = 0;
                 }
+                // how to play 0 0
                 else if (index == 2)
                 {
                     HowToPlayScreen howToPlayScreen = new HowToPlayScreen();
-                    howToPlayScreen.Screen(61,20);
+                    howToPlayScreen.Screen((int)dimensions.regularWidth, (int)dimensions.regularHeight);
                     index = 0;
                 }
+                // settings 0 0
                 else if (index == 3)
                 {
-                    SettingsScreen settingsScreen = new SettingsScreen();
-                    settingsScreen.Screen(61,20);
+                    SettingsScreen settingsScreen = new SettingsScreen(1,1);
+                    settingsScreen.Screen((int)dimensions.regularWidth, (int)dimensions.regularHeight);
                     index = 0;
                 }
+                // EXIT
                 else if (index == 4)
                 {
+                    // quit screen has its own dimensions, different from every other
                     QuitScreen quitScreen = new QuitScreen();
                     quitScreen.Screen();
                     index = 5;
                 }
             }
             Console.Clear();
-
         }
     }
 }

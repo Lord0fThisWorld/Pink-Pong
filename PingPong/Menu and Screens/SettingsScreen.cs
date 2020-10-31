@@ -5,6 +5,16 @@ namespace PingPong
 {
     class SettingsScreen : ScreenBase
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="resolution">1 - 4</param>
+        /// <param name="gameSpeed">1 - 2</param>
+        public SettingsScreen(int resolution, int gameSpeed)
+        {
+            this.resolution = resolution;
+            this.gameSpeed = gameSpeed;
+        }
         protected int index = 1;
         protected int resolution = 1;
         protected int gameSpeed = 1;

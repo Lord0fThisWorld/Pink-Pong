@@ -8,12 +8,14 @@ namespace PingPong
     {
         public void Screen(int width, int height, int score)
         {
+            int xStart = ((width + 2) - 57) / 2;
+            int yStart = ((height + 2) - 18) / 2;
             startupDate = DateTime.Now;
-            while(consoleKey != ConsoleKey.Enter)
+            while (consoleKey != ConsoleKey.Enter)
             {
                 mainClock = DateTime.Now - startupDate;
                 OuterFrameDraw(width, height, '▓');
-                InnerFrameDraw(3, 2, '▒');
+                InnerFrameDraw(xStart, yStart, '▒');
                 #region GAME OVER
                 switch (((int)mainClock.TotalSeconds) % 4)
                 {
@@ -30,33 +32,33 @@ namespace PingPong
                         Console.ForegroundColor = ConsoleColor.Magenta;
                         break;
                 }
-                Console.SetCursorPosition(43, 5);
+                Console.SetCursorPosition(xStart + 40, yStart + 3);
                 Console.Write("GAME OVER");
                 Console.ForegroundColor = ConsoleColor.Gray;
                 #endregion
-                Console.SetCursorPosition(41, 7);
+                Console.SetCursorPosition(xStart + 38, yStart + 5);
                 Console.Write("Your score: " + score);
                 #region Press ENTER
-                if ((((int)mainClock.TotalSeconds) % 2) == 0 )
+                if ((((int)mainClock.TotalSeconds) % 2) == 0)
                 {
-                    Console.SetCursorPosition(41, 9);
+                    Console.SetCursorPosition(xStart + 38,yStart + 7);
                     Console.Write("Press ENTER...");
                 }
                 else
                 {
-                    Console.SetCursorPosition(41, 9);
+                    Console.SetCursorPosition(xStart + 38,yStart + 7);
                     Console.Write("              ");
                 }
                 #endregion
                 #region Alien
-                if (( ( ((((int)mainClock.TotalSeconds) % 9) == 0) || (((int)mainClock.TotalSeconds) % 9) == 1) )
-                    && ( ((int)mainClock.TotalSeconds)>8) )
+                if (((((((int)mainClock.TotalSeconds) % 9) == 0) || (((int)mainClock.TotalSeconds) % 9) == 1))
+                    && (((int)mainClock.TotalSeconds) > 8))
                 {
-                    AlienSpaceshipDrawBlink(7, 3);
+                    AlienSpaceshipDrawBlink(xStart + 4,yStart + 1);
                 }
                 else
                 {
-                    AlienSpaceshipDraw(7, 3);
+                    AlienSpaceshipDraw(xStart + 4,yStart + 1);
                 }
                 #endregion
                 Input();
