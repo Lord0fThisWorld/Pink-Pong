@@ -25,7 +25,7 @@ namespace PingPong
             this.boardWidth = boardWidth;
             X = x;
             Y = boardHeight / 2;
-            Lenght = 1 + paddleLength;
+            Lenght = paddleLength;
         }
         /// <summary>
         /// method responsible for moving tha paddle up and stopping it when it reaches the limit
@@ -37,7 +37,7 @@ namespace PingPong
                 #region tail_cancell
                 Console.SetCursorPosition(X, (Y + (Lenght / 2)));
                 Console.Write("\0");
-                //main rear part of the paddle
+                //central rear part of the paddle
                 if (X > boardWidth / 2)
                 { //Right paddle
                     Console.SetCursorPosition(X + 1, Y);

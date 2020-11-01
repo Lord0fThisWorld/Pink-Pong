@@ -4,6 +4,7 @@ namespace PingPong
 {
     class Ball
     {
+        #region variables
         // ball coordinates
         public int X { get; set; }
         public int Y { get; set; }
@@ -15,13 +16,7 @@ namespace PingPong
         int boardWidth;
         // determines Y movement (important for central hits)
         public int Direction { get; set; }
-        /// <summary>
-        /// constructor setting 
-        /// </summary>
-        /// <param name="x">X ball coordinate</param>
-        /// <param name="y">Y ball coordinate</param>
-        /// <param name="boardHeight"></param>
-        /// <param name="boardWidth"></param>
+        #endregion
         public Ball(int x, int y, int boardHeight, int boardWidth)
         {
             X = x;
@@ -32,14 +27,15 @@ namespace PingPong
             changeY = 1;
         }
         /// <summary>
-        /// Ball physics
+        /// Determines whether the ball was hit by the paddle
         /// </summary>
         /// <param name="paddle1"></param>
         /// <param name="paddle2"></param>
-        public bool Physics(Paddle paddle1, Paddle paddle2)
+        public bool Physics(Paddle paddle1, Paddle paddle2, TimeSpan mainClock)
         {
             //true if hit
             bool hit;
+
             // sets cursor position to ball coordinates, 1st their passed by constructor
             Console.SetCursorPosition(X, Y);
             // writes null value to where ball is now (to draw it later) (to avoid snake effect)
@@ -69,6 +65,7 @@ namespace PingPong
             {
                 hit = false;
             }
+            // actual movement is going on here
             switch (Direction)
             {
                 case 0:

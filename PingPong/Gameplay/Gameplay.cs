@@ -6,8 +6,9 @@ namespace PingPong
     /// <summary>
     /// General class that creates and manipulates other game objects
     /// </summary>
-    class Gameplay : UserInputReader
+    class Gameplay : ScreenBase
     {
+        #region variables
         ScoreCounter scoreCounter;
         // variables that holds dimensions to the time when board is created (they are passed to boards creator)
         int width, height;
@@ -16,11 +17,8 @@ namespace PingPong
         // paddle variables
         Paddle paddle1, paddle2;
         Ball ball;
-        /// <summary>
-        /// Constructor (needs to get width and height to configure other properties)
-        /// </summary>
-        /// <param name="width"></param>
-        /// <param name="height"></param>
+        int ballSpeed;
+        #endregion
         public Gameplay(int width, int height)
         {
             // writes (dimensions passed to PingPong constructor) to PingPong variables
@@ -30,14 +28,16 @@ namespace PingPong
             board = new Board(height, width);
             //creates new ball instance
             ball = new Ball(width / 2, height / 2, height, width);
+            // necessary for calculating time span for time dependant events
+            startupDate = DateTime.Now;
         }
         /// <summary>
         /// initial gameplay setup
         /// </summary>
         public void Setup()
         {
-            paddle1 = new Paddle(2, height, width,6);
-            paddle2 = new Paddle(width - 1, height, width,6);
+            paddle1 = new Paddle(2, height, width, 6);
+            paddle2 = new Paddle(width - 1, height, width, 6);
             keyInfo = new ConsoleKeyInfo();
             consoleKey = new ConsoleKey();
             ball.X = width / 2;
@@ -50,15 +50,27 @@ namespace PingPong
         /// </summary>
         public int Run(int temp)
         {
+            #region initialization
+            if ((temp % 100) < 20)
+            {
+                ballSpeed = 100;
+            }
+            else
+            {
+                ballSpeed = 50;
+            }
             Console.Clear();
             Setup();
             board.Write();
             paddle1.Write();
             paddle2.Write();
             ball.Write();
+            #endregion
             //GAME LOOP - runs until ball missed the paddle - end of a round
             while (ball.X != 1 && ball.X != width - 1)
             {
+                // clock, responsible for time dependant events
+                mainClock = DateTime.Now - startupDate;
                 // reads input key
                 Input();
                 //depending on key value performs a specific action
@@ -83,17 +95,22 @@ namespace PingPong
                 }
                 // resets consoleKey variable value so pressing W or S does not make it go up the way up or down but only makes one move
                 consoleKey = ConsoleKey.A;
-                // method responsible for propper ball movement
-                if (ball.Physics(paddle1, paddle2))
+                if (mainClock.TotalMilliseconds > ballSpeed)
                 {
-                    scoreCounter.score++;
+                    startupDate = DateTime.Now;
+                    // method responsible for propper ball movement
+                    if (ball.Physics(paddle1, paddle2, mainClock))
+                    {
+                        scoreCounter.score++;
+                    }
+                    // method responsible for printing the ball graphical interpretations
+                    ball.Write();
                 }
-                // method responsible for printing the ball graphical interpretations
-                ball.Write();
+                
                 // prints score counter in the middle of the screen
                 scoreCounter.Write(width);
-                // determines time intervals in which ball is moving by stopping whole program for a while, also prevents blinking of the whole content
-                Thread.Sleep(100);
+                //Console.SetCursorPosition(width / 2 - 3, 3);
+                //Console.Write("clock: " + (mainClock.Milliseconds == 999));
             }
             Console.Clear();
             GameOverScreen gameOverScreen = new GameOverScreen();

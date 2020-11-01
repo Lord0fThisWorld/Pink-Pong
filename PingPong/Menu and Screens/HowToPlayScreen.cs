@@ -11,7 +11,7 @@ namespace PingPong
             // necessary for relative content positioning
             int xStart = ((width + 2) - 57) / 2;
             int yStart = ((height + 2) - 18) / 2;
-            // necessary for calculating time span for other methods
+            // necessary for calculating time span for time dependant events
             startupDate = DateTime.Now;
             // main loop
             while (consoleKey != ConsoleKey.Enter)

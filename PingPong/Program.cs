@@ -180,6 +180,7 @@ namespace PingPong
                     index = 5;
                 }
             }
+            Console.ResetColor();
             Console.Clear();
         }
     }
