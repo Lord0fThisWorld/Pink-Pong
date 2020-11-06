@@ -55,7 +55,7 @@ namespace PingPong
                 {
                     Direction = 0;
                 }
-                if ((Y >= (paddle1.Y - (paddle1.Lenght / 2)) && Y < paddle1.Y) || (Y > paddle1.Y && Y < (paddle1.Y + (paddle1.Lenght / 2))))
+                if ((Y >= (paddle1.Y - (paddle1.Lenght / 2)) && Y < paddle1.Y) || (Y > paddle1.Y && Y <= (paddle1.Y + (paddle1.Lenght / 2))))
                 {
                     Direction = 1;
                 }
