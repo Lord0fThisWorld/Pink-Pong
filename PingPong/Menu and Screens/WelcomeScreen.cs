@@ -53,7 +53,7 @@ namespace PingPong
                 }
                 #endregion
                 Console.SetCursorPosition(21, 14);
-                Console.Write("A TZ-games production");
+                Console.Write("A Console Arcade Game");
                 #region press enter to proceed
                 // 2 seconds of display 1 seccond of blank space
                 if ((((int)mainClock.TotalSeconds) % 3 == 0) || (((int)mainClock.TotalSeconds) % 3 == 1))
