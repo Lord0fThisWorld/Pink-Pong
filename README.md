@@ -4,7 +4,7 @@ This is my first complete project. It's a console app that does not use any exte
 It's an arcade game. Gameplay is very simple, Player just tries to hit the ball with paddles by moving them up and down by pressing W/S or Up/Down
 
 ![Welcome Screen](Screenshots/Game1.png)
-## playability
+## Playability
 Not really, you would be bored very quickly playing this game. My intention was to practice coding .NET apps but in a way that gives satistfaction and allows to publish it on github so I cen recieve some tips and guidance from more experienced users
 
 ![Welcome Screen](Screenshots/Game2.png)
