@@ -174,9 +174,6 @@ namespace PingPong
                 // EXIT
                 else if ((index % 10) == 4)
                 {
-                    // quit screen has its own dimensions, different from every other
-                    QuitScreen quitScreen = new QuitScreen();
-                    quitScreen.Screen();
                     index = 5;
                 }
             }
