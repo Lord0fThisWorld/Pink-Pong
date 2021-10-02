@@ -33,14 +33,11 @@ namespace Game
         /// <param name="paddle2"></param>
         public bool Physics(Paddle paddle1, Paddle paddle2, TimeSpan mainClock)
         {
-            //true if hit
             bool hit;
 
-            // sets cursor position to ball coordinates, 1st their passed by constructor
             Console.SetCursorPosition(X, Y);
-            // writes null value to where ball is now (to draw it later) (to avoid snake effect)
-            Console.Write("\0");
-            // if reaches top or base changes Y movement direction
+            Console.Write("\0"); //erass ball to avoid "snake" tail
+
             if (Y <= 1 || Y >= boardHeight)
             {
                 changeY *= -1;
@@ -49,23 +46,22 @@ namespace Game
             if ((X == 3 || X == boardWidth - 2) && (paddle1.Y - (paddle1.Lenght / 2)) <= Y && (paddle1.Y + (paddle1.Lenght / 2)) >= Y)
             {
                 hit = true;
-                //checking if it's a direct hit, to stop or start Y movement
                 changeX *= -1;
                 if (Y == paddle1.Y)
                 {
-                    Direction = 0;
+                    Direction = 0; //direct hit stops Y movement
                 }
+                //FLAGGED - USELESS IF STATEMETS
                 if ((Y >= (paddle1.Y - (paddle1.Lenght / 2)) && Y < paddle1.Y) || (Y > paddle1.Y && Y <= (paddle1.Y + (paddle1.Lenght / 2))))
                 {
                     Direction = 1;
                 }
-                //performs movement (also turns on and off y movement depending on how paddle was hit - variable Direction)
             }
             else
             {
                 hit = false;
             }
-            // actual movement is going on here
+            //ball movement
             switch (Direction)
             {
                 case 0:
@@ -79,7 +75,7 @@ namespace Game
             return hit;
         }
         /// <summary>
-        /// Ball printing
+        /// Prints ball
         /// </summary>
         public void Write()
         {
