@@ -36,7 +36,7 @@ namespace Game
             bool hit;
 
             Console.SetCursorPosition(X, Y);
-            Console.Write("\0"); //erass ball to avoid "snake" tail
+            Console.Write(" "); //erass ball to avoid "snake" tail
 
             if (Y <= 1 || Y >= boardHeight)
             {

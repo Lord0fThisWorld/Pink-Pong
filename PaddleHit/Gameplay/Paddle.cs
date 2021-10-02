@@ -36,17 +36,17 @@ namespace Game
             {
                 #region tail_cancell
                 Console.SetCursorPosition(X, (Y + (Lenght / 2)));
-                Console.Write("\0");
+                Console.Write(" ");
                 //central rear part of the paddle
                 if (X > boardWidth / 2)
                 { //Right paddle
                     Console.SetCursorPosition(X + 1, Y);
-                    Console.Write("\0");
+                    Console.Write(" ");
                 }
                 else
                 { //Left paddle
                     Console.SetCursorPosition(X - 1, Y);
-                    Console.Write("\0");
+                    Console.Write(" ");
                 }
                 #endregion
                 Y--;
@@ -62,17 +62,17 @@ namespace Game
             {
                 #region tail_cancell
                 Console.SetCursorPosition(X, (Y - (Lenght / 2)));
-                Console.Write("\0");
+                Console.Write(" ");
                 //main rear part of the paddle
                 if (X > boardWidth / 2)
                 { //Right paddle
                     Console.SetCursorPosition(X + 1, Y);
-                    Console.Write("\0");
+                    Console.Write(" ");
                 }
                 else
                 { //Left paddle
                     Console.SetCursorPosition(X - 1, Y);
-                    Console.Write("\0");
+                    Console.Write(" ");
                 }
                 #endregion
                 Y++;
