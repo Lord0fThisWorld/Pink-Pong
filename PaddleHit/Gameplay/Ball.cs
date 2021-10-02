@@ -51,8 +51,7 @@ namespace Game
                 {
                     Direction = 0; //direct hit stops Y movement
                 }
-                //FLAGGED - USELESS IF STATEMETS
-                if ((Y >= (paddle1.Y - (paddle1.Lenght / 2)) && Y < paddle1.Y) || (Y > paddle1.Y && Y <= (paddle1.Y + (paddle1.Lenght / 2))))
+                else
                 {
                     Direction = 1;
                 }
