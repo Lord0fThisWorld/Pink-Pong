@@ -6,7 +6,7 @@ namespace Game
     /// <summary>
     /// General class that creates and manipulates other game objects
     /// </summary>
-    class Gameplay : ScreenBase
+    class GameplayScreen : ScreenBase
     {
         #region variables
         ScoreCounter scoreCounter;
@@ -19,7 +19,7 @@ namespace Game
         Ball ball;
         int ballSpeed;
         #endregion
-        public Gameplay(int width, int height)
+        public GameplayScreen(int width, int height)
         {
             // writes (dimensions passed to PingPong constructor) to PingPong variables
             this.width = width;

@@ -64,7 +64,7 @@ namespace Game
                 {
                     Console.SetWindowSize((int)dimensions.regularWidth + 2, (int)dimensions.regularHeight + 2);
                     Console.SetBufferSize((int)dimensions.regularWidth + 2, (int)dimensions.regularHeight + 2);
-                    Gameplay gameplay = new Gameplay((int)dimensions.regularWidth, (int)dimensions.regularHeight);
+                    GameplayScreen gameplay = new GameplayScreen((int)dimensions.regularWidth, (int)dimensions.regularHeight);
                     index = gameplay.Run(index);
                 }
                 // gameplay 2:1:1
@@ -73,7 +73,7 @@ namespace Game
 
                     Console.SetWindowSize((int)dimensions.extendedWidth + 2, (int)dimensions.regularHeight + 2);
                     Console.SetBufferSize((int)dimensions.extendedWidth + 2, (int)dimensions.regularHeight + 2);
-                    Gameplay gameplay = new Gameplay((int)dimensions.extendedWidth, (int)dimensions.regularHeight);
+                    GameplayScreen gameplay = new GameplayScreen((int)dimensions.extendedWidth, (int)dimensions.regularHeight);
                     index = gameplay.Run(index);
 
                 }
@@ -83,7 +83,7 @@ namespace Game
 
                     Console.SetWindowSize((int)dimensions.regularWidth + 2, (int)dimensions.extendedHeight + 2);
                     Console.SetBufferSize((int)dimensions.regularWidth + 2, (int)dimensions.extendedHeight + 2);
-                    Gameplay gameplay = new Gameplay((int)dimensions.regularWidth, (int)dimensions.extendedHeight);
+                    GameplayScreen gameplay = new GameplayScreen((int)dimensions.regularWidth, (int)dimensions.extendedHeight);
                     index = gameplay.Run(index);
 
                 }
@@ -93,7 +93,7 @@ namespace Game
 
                     Console.SetWindowSize((int)dimensions.extendedWidth + 2, (int)dimensions.extendedHeight + 2);
                     Console.SetBufferSize((int)dimensions.extendedWidth + 2, (int)dimensions.extendedHeight + 2);
-                    Gameplay gameplay = new Gameplay((int)dimensions.extendedWidth, (int)dimensions.extendedHeight);
+                    GameplayScreen gameplay = new GameplayScreen((int)dimensions.extendedWidth, (int)dimensions.extendedHeight);
                     index = gameplay.Run(index);
 
                 }
