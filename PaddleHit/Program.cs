@@ -5,7 +5,6 @@ namespace Game
 {
     class Program
     {
-        // 4 avaliable app resolutions
         enum dimensions
         {
             regularWidth = 61,
@@ -16,18 +15,14 @@ namespace Game
         static void Main(string[] args)
         {
             #region initial_settings
-            // necessary to be able to display graphical symbols in game
+            // symbols used in display require unicode encoding
             Console.OutputEncoding = System.Text.Encoding.Unicode;
-            // just for visual purposes it looks better when console cursor is not visible somewhere during the game
             Console.CursorVisible = false;
             #endregion
-            // creates new instance of welcome screen
             WelcomeScreen welcomeScreen = new WelcomeScreen();
-            // runs welcome screen as a first visible user screen
             welcomeScreen.Screen();
-            // switches to the right method depending on index value which is set by different methods
             int index = 110;
-            while ((index % 10) != 5) // RESOLUTION : SPEED : INDEX
+            while ((index % 10) != 5) //format: RESOLUTION|SPEED|INDEX
             {
                 #region main menu
                 // main menu 1:1:0
