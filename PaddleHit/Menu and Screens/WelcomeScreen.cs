@@ -32,24 +32,23 @@ namespace Game
                 mainClock = DateTime.Now - startupDate;
                 // procedurally generated word, drawed by squares (single characters)
                 WordDraw(8, 5, "welcome");
+                Console.SetCursorPosition(23, 12);
+                Console.Write("To ");
                 //Some time dependent text
-                #region welcome to ping-pong 2020
+                #region welcome message
                 if ((int)mainClock.TotalSeconds > 5 && ((((int)mainClock.TotalSeconds) % 10 == 0) ||
                     (((int)mainClock.TotalSeconds - 1) % 10 == 0) ||
                     (((int)mainClock.TotalSeconds - 2) % 10 == 0) ||
                     (((int)mainClock.TotalSeconds - 3) % 10 == 0)))
                 {
-                    Console.SetCursorPosition(23, 12);
-                    Console.Write("TO ");
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    Console.Write("PINK");
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.Write("PaddleHit 2020");
                     Console.ResetColor();
-                    Console.Write("-PONG 2020");
                 }
                 else
                 {
-                    Console.SetCursorPosition(23, 12);
-                    Console.Write("TO PINK-PONG 2020");
+                    Console.SetCursorPosition(26, 12);
+                    Console.Write("PaddleHit 2020");
                 }
                 #endregion
                 Console.SetCursorPosition(21, 14);
