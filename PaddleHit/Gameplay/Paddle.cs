@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PingPong
+namespace Game
 {
     /// <summary>
     /// Class holding info about the paddles used to play pingpong

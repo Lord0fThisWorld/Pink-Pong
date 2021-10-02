@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PingPong
+namespace Game
 {
     abstract class ScreenBase : UserInputReader
     {

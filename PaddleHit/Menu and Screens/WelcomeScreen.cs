@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace PingPong
+namespace Game
 {
     class WelcomeScreen : ScreenBase
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace PingPong
+namespace Game
 {
     /// <summary>
     /// General class that creates and manipulates other game objects

@@ -3,8 +3,8 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <StartupObject>PingPong.Program</StartupObject>
-    <AssemblyName>Pink-Pong 2020</AssemblyName>
+    <StartupObject>Game.Program</StartupObject>
+    <AssemblyName>PaddleHit</AssemblyName>
     <ApplicationIcon></ApplicationIcon>
     <Version>0.2.1</Version>
     <NeutralLanguage>en</NeutralLanguage>
