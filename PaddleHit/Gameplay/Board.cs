@@ -51,7 +51,7 @@ namespace Game
                 Console.Write("│");
             }
             #endregion
-            #region edges
+            #region corners
             Console.SetCursorPosition(0, 0);
             Console.Write("┌");
             Console.SetCursorPosition(Width + 1, 0);
