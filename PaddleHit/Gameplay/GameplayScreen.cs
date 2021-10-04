@@ -53,7 +53,7 @@ namespace Game
             }
             Console.Clear();
             Setup();
-            board.Write();
+            board.PrintTheBoardToConsole();
             paddle1.Write();
             paddle2.Write();
             ball.Write();

@@ -18,10 +18,11 @@ namespace Game
             Height = height;
             Width = width;
         }
+
         /// <summary>
         /// Method responsible for printing the board
         /// </summary>
-        public void Write()
+        public void PrintTheBoardToConsole()
         {
             #region horizontal lines
             // up from left to right
