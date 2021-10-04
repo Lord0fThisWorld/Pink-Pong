@@ -2,38 +2,27 @@
 
 namespace Game
 {
-    /// <summary>
-    /// Class holding info about the board that game is going on
-    /// </summary>
     class Board
     {
-        // buffer properties, that hold the value passe from the constructor to later pass them into Write method
         public int Height { get; set; }
         public int Width { get; set; }
-        /// <summary>
-        /// Default constructor
-        /// </summary>
+
         public Board()
         {
             Height = 20;
             Width = 60;
         }
-        /// <summary>
-        /// Custom constructor allowing to set the board size by passing dimensions
-        /// </summary>
-        /// <param name="height">board height</param>
-        /// <param name="width">board width</param>
+
         public Board(int height, int width)
         {
             Height = height;
             Width = width;
         }
         /// <summary>
-        /// Method responsible for printing the board graphics
+        /// Method responsible for printing the board
         /// </summary>
         public void Write()
         {
-            // prints board edges
             #region horizontal lines
             // up from left to right
             for (int i = 0; i <= Width; i++)
@@ -63,7 +52,6 @@ namespace Game
             }
             #endregion
             #region edges
-            // draws board edges
             Console.SetCursorPosition(0, 0);
             Console.Write("┌");
             Console.SetCursorPosition(Width + 1, 0);
