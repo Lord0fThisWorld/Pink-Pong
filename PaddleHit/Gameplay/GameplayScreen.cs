@@ -86,7 +86,7 @@ namespace Game
                 if (mainClock.TotalMilliseconds > ballSpeed)
                 {
                     startupDate = DateTime.Now;
-                    if (ball.Physics(paddle1, paddle2, mainClock))
+                    if (ball.Physics(paddle1))
                     {
                         scoreCounter.score++;
                     }

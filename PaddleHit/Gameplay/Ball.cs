@@ -29,8 +29,7 @@ namespace Game
         /// Determines whether the ball was hit by the paddle
         /// </summary>
         /// <param name="paddle1"></param>
-        /// <param name="paddle2"></param>
-        public bool Physics(Paddle paddle1, Paddle paddle2, TimeSpan mainClock)
+        public bool Physics(Paddle paddle1)
         {
             bool hit;
 
