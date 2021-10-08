@@ -88,7 +88,7 @@ namespace Game
                     startupDate = DateTime.Now;
                     if (ball.Physics(paddle1))
                     {
-                        scoreCounter.score++;
+                        scoreCounter.Score++;
                     }
                     ball.Write();
                 }
@@ -98,7 +98,7 @@ namespace Game
             }
             Console.Clear();
             GameOverScreen gameOverScreen = new GameOverScreen();
-            gameOverScreen.Screen(width, height, scoreCounter.score);
+            gameOverScreen.Screen(width, height, scoreCounter.Score);
             return ((temp / 10) * 10);
         }
     }
