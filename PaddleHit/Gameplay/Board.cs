@@ -19,9 +19,6 @@ namespace Game
             Width = width;
         }
 
-        /// <summary>
-        /// Method responsible for printing the board
-        /// </summary>
         public void PrintTheBoardToConsole()
         {
             #region horizontal lines
