@@ -25,10 +25,7 @@ namespace Game
             changeX = -1;
             changeY = 1;
         }
-        /// <summary>
-        /// Determines whether the ball was hit by the paddle
-        /// </summary>
-        /// <param name="paddle1"></param>
+
         public bool Physics(Paddle paddle1)
         {
             bool hit;
