@@ -4,19 +4,18 @@ namespace Game
 {
     class Ball
     {
-        #region variables
-        // ball coordinates
+
         public int X { get; set; }
         public int Y { get; set; }
-        // used to determine movement in each direction
+
         int changeX;
         int changeY;
-        // informs ball about board dimensions (important for ball physics)
+
         int boardHeight;
         int boardWidth;
-        // determines Y movement (important for central hits)
+
         public int Direction { get; set; }
-        #endregion
+
         public Ball(int x, int y, int boardHeight, int boardWidth)
         {
             X = x;
@@ -42,14 +41,15 @@ namespace Game
             {
                 changeY *= -1;
             }
-            // "hit event" if ball it's hitting the paddle, so it is on X corresponding to paddle and its Y value is in range of paddle size
+            //
             if ((X == 3 || X == boardWidth - 2) && (paddle1.Y - (paddle1.Lenght / 2)) <= Y && (paddle1.Y + (paddle1.Lenght / 2)) >= Y)
             {
                 hit = true;
                 changeX *= -1;
                 if (Y == paddle1.Y)
                 {
-                    Direction = 0; //direct hit stops Y movement
+                    //direct hit stops Y movement
+                    Direction = 0;
                 }
                 else
                 {
@@ -60,7 +60,7 @@ namespace Game
             {
                 hit = false;
             }
-            //ball movement
+            //moves the ball
             switch (Direction)
             {
                 case 0:
@@ -73,9 +73,7 @@ namespace Game
             }
             return hit;
         }
-        /// <summary>
-        /// Prints ball
-        /// </summary>
+
         public void Write()
         {
             Console.ForegroundColor = ConsoleColor.Blue;
