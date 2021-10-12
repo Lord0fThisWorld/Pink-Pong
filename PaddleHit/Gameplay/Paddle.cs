@@ -21,7 +21,7 @@ namespace Game
             Lenght = paddleLength;
         }
 
-        public void Up()
+        public void MoveUp()
         {
             if ((Y - 1 - (Lenght / 2)) != 0)
             {
@@ -41,11 +41,11 @@ namespace Game
                 }
                 #endregion
                 Y--;
-                Write();
+                PrintThePaddleToConsole();
             }
         }
 
-        public void Down()
+        public void MoveDown()
         {
             if ((Y + 1 + (Lenght / 2)) != boardHeight + 1)
             {
@@ -65,11 +65,11 @@ namespace Game
                 }
                 #endregion
                 Y++;
-                Write();
+                PrintThePaddleToConsole();
             }
         }
 
-        public void Write()
+        public void PrintThePaddleToConsole()
         {
             Console.ForegroundColor = ConsoleColor.Red;
             for (int i = (Y - (Lenght / 2)); i <= (Y + (Lenght / 2)); i++)

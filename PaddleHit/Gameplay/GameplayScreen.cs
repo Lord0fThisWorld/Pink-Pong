@@ -54,8 +54,8 @@ namespace Game
             Console.Clear();
             Setup();
             board.PrintTheBoardToConsole();
-            paddle1.Write();
-            paddle2.Write();
+            paddle1.PrintThePaddleToConsole();
+            paddle2.PrintThePaddleToConsole();
             ball.Write();
             #endregion
             // Gameplay loop
@@ -66,20 +66,20 @@ namespace Game
                 switch (consoleKey)
                 {
                     case ConsoleKey.W:
-                        paddle1.Up();
-                        paddle2.Up();
+                        paddle1.MoveUp();
+                        paddle2.MoveUp();
                         break;
                     case ConsoleKey.UpArrow:
-                        paddle1.Up();
-                        paddle2.Up();
+                        paddle1.MoveUp();
+                        paddle2.MoveUp();
                         break;
                     case ConsoleKey.S:
-                        paddle1.Down();
-                        paddle2.Down();
+                        paddle1.MoveDown();
+                        paddle2.MoveDown();
                         break;
                     case ConsoleKey.DownArrow:
-                        paddle1.Down();
-                        paddle2.Down();
+                        paddle1.MoveDown();
+                        paddle2.MoveDown();
                         break;
                 }
                 consoleKey = ConsoleKey.A; //resets the key so it's not pressed permanently
