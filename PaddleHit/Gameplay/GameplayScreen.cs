@@ -93,8 +93,10 @@ namespace Game
                     ball.Write();
                 }
                 scoreCounter.Write(width);
+                #region diagnosticClock
                 //Console.SetCursorPosition(width / 2 - 3, 3);
                 //Console.Write("clock: " + (mainClock.Milliseconds == 999));
+                #endregion
             }
             Console.Clear();
             GameOverScreen gameOverScreen = new GameOverScreen();
