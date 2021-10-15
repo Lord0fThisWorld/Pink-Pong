@@ -8,22 +8,21 @@ namespace Game
     {
         public int Screen(int width, int height,int temp)
         {
-            // necessary for relative content positioning
+            //for relative content positioning
             int xStart = ((width + 2) - 57) / 2;
             int yStart = ((height + 2) - 18) / 2;
-            // necessary for calculating time span for time dependant events
+
             startupDate = DateTime.Now;
             // main loop
             while (consoleKey != ConsoleKey.Enter)
             {
-                // time passed from method invoke
+
                 mainClock = DateTime.Now - startupDate;
-                // outer frame takes whole space avaliable
+
                 OuterFrameDraw(width, height, '▓');
-                // inner frame is fixed size and it is positioned relatively to outer frame
                 InnerFrameDraw(xStart, yStart, '▒');
-                // content display
-                #region help statements
+
+                #region HELP CONTENT
                 Console.SetCursorPosition(xStart + 5,yStart + 2);
                 Console.Write("1) Use W/S or up/down arrow keys to move the");
                 Console.SetCursorPosition(xStart + 5,yStart + 3);
@@ -43,8 +42,8 @@ namespace Game
                 Console.SetCursorPosition(xStart + 5, yStart + 13);
                 Console.Write("4) Use setting to adjust gameplay to your needs");
                 #endregion
-                // blinking text prompt
-                #region Press ENTER
+
+                #region Press ENTER TEXT
                 if (((int)mainClock.TotalSeconds) % 2 == 0)
                 {
                     Console.SetCursorPosition(xStart + 16,yStart + 15);
@@ -56,6 +55,7 @@ namespace Game
                     Console.Write("                          ");
                 }
                 #endregion
+
                 #region side lines
                 // left from top to bottom
                 for (int i = yStart + 2; i < yStart + 15; i++)
