@@ -233,7 +233,7 @@ namespace Game
                 // prevents blinking
                 Thread.Sleep(50);
                 // listens for pressed keys
-                Input();
+                CheckIfKeyIsPressed();
             }
             // screen must be cleaned before other screens/gameplay
             Console.Clear();

@@ -117,7 +117,7 @@ namespace Game
                 consoleKey = ConsoleKey.A;
                 // prevents blinking
                 Thread.Sleep(50);
-                Input();
+                CheckIfKeyIsPressed();
             }
             consoleKey = ConsoleKey.A;
             Console.Clear();

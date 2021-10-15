@@ -62,7 +62,7 @@ namespace Game
             while (ball.X != 1 && ball.X != width - 1)
             {
                 mainClock = DateTime.Now - startupDate;
-                Input();
+                CheckIfKeyIsPressed();
                 switch (consoleKey)
                 {
                     case ConsoleKey.W:

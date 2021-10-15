@@ -70,7 +70,7 @@ namespace Game
                     AlienSpaceshipDraw(xStart + 4,yStart + 1);
                 }
                 #endregion
-                Input();
+                CheckIfKeyIsPressed();
             }
             Console.Clear();
         }

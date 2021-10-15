@@ -70,7 +70,7 @@ namespace Game
                     Console.Write("│");
                 }
                 #endregion
-                Input();
+                CheckIfKeyIsPressed();
             }
             Console.Clear();
             return ((temp / 10) * 10);

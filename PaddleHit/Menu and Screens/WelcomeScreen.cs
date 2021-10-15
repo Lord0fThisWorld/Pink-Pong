@@ -76,7 +76,7 @@ namespace Game
                 //Console.Write("Main Clock: " + (int)mainClock.TotalSeconds);
                 //#endregion
                 // listens for user input
-                Input();
+                CheckIfKeyIsPressed();
             }
             Console.Clear();
             consoleKey = ConsoleKey.A;
