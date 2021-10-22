@@ -29,12 +29,7 @@ namespace Game
                 
                 Thread.Sleep(1); // prevents blinking of items due to high refresh rate
 
-                #region DEVELOPER_CLOCK
-                //Console.SetCursorPosition(24, 14);
-                //Console.Write("                   ");
-                //Console.SetCursorPosition(24, 14);
-                //Console.Write("Main Clock: " + (int)mainClock.TotalSeconds);
-                #endregion
+                //DevClock(mainClock);
 
                 CheckIfKeyIsPressed();
             }
@@ -81,6 +76,14 @@ namespace Game
                 Console.Write("                          ");
             }
             #endregion
+        }
+
+        private void DevClock(TimeSpan mainClock)
+        {
+            Console.SetCursorPosition(24, 14);
+            Console.Write("                   ");
+            Console.SetCursorPosition(24, 14);
+            Console.Write("Main Clock: " + (int)mainClock.TotalSeconds);
         }
     }
 }
