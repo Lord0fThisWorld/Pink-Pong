@@ -1,7 +1,8 @@
 {
   "profiles": {
-    "PingPong": {
-      "commandName": "Project"
+    "Debug PaddleHit": {
+      "commandName": "Project",
+      "workingDirectory": "D:\\Nauka\\Cs\\PaddleHit"
     }
   }
 }

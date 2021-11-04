@@ -20,82 +20,45 @@ namespace Game
 
             while (consoleKey != ConsoleKey.Enter)
             {
-                #region START GAME
+
                 if (index == 1)
                 {
-                    Console.SetCursorPosition(xStart + 22,yStart + 8);
-                    Console.Write("             ");
-                    Console.BackgroundColor = ConsoleColor.Gray;
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    Console.SetCursorPosition(xStart + 24,yStart + 8);
-                    Console.Write("START GAME");
-                    Console.ResetColor();
+                    DisplayStartGameMenuOptionSelected(xStart, yStart);
                 }
                 else
                 {
-                    Console.SetCursorPosition(xStart + 22,yStart + 8);
-                    Console.Write("             ");
-                    Console.SetCursorPosition(xStart + 23,yStart + 8);
-                    Console.Write("START GAME");
+                    DisplayStartGameMenuOptionNotSelected(xStart, yStart);
                 }
-                #endregion
-                #region HOW TO PLAY
+
+
                 if (index == 2)
                 {
-                    Console.SetCursorPosition(xStart + 22,yStart + 10);
-                    Console.Write("             ");
-                    Console.BackgroundColor = ConsoleColor.Gray;
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    Console.SetCursorPosition(xStart + 24,yStart + 10);
-                    Console.Write("HOW TO PLAY");
-                    Console.ResetColor();
+                    DisplayHowToPlayMenuOptionSelected(xStart, yStart);
                 }
                 else
                 {
-                    Console.SetCursorPosition(xStart + 22,yStart + 10);
-                    Console.Write("             ");
-                    Console.SetCursorPosition(xStart + 23,yStart + 10);
-                    Console.Write("HOW TO PLAY");
+                    DisplayHowToPlayMenuOptionNotSelected(xStart, yStart);
                 }
-                #endregion
-                #region SETTINGS
+
+
                 if (index ==3)
                 {
-                    Console.SetCursorPosition(xStart + 22,yStart + 12);
-                    Console.Write("             ");
-                    Console.BackgroundColor = ConsoleColor.Gray;
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    Console.SetCursorPosition(xStart + 24,yStart + 12);
-                    Console.Write("SETTINGS");
-                    Console.ResetColor();
+                    DisplaySettingsMenuOptionSelected(xStart, yStart);
                 }
                 else
                 {
-                    Console.SetCursorPosition(xStart + 22,yStart + 12);
-                    Console.Write("             ");
-                    Console.SetCursorPosition(xStart + 23,yStart + 12);
-                    Console.Write("SETTINGS");
+                    DisplaySettingsMenuOptionNotSelected(xStart, yStart);
                 }
-                #endregion
-                #region QUIT
+
+
                 if (index == 4)
                 {
-                    Console.SetCursorPosition(xStart + 22,yStart + 14);
-                    Console.Write("             ");
-                    Console.BackgroundColor = ConsoleColor.Gray;
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    Console.SetCursorPosition(xStart + 24,yStart + 14);
-                    Console.Write("QUIT");
-                    Console.ResetColor();
+                    DisplayQuitMenuOptionSelected(xStart, yStart);
                 }
                 else
                 {
-                    Console.SetCursorPosition(xStart + 22,yStart + 14);
-                    Console.Write("             ");
-                    Console.SetCursorPosition(xStart + 23,yStart + 14);
-                    Console.Write("QUIT");
+                    DisplayQuitMenuOptionNotSelected(xStart, yStart);
                 }
-                #endregion
 
                 ScientistLeftDraw(xStart + 2,yStart + 4);
                 ScientistRightDraw(xStart + 39, yStart + 4);
@@ -108,16 +71,19 @@ namespace Game
                 {
                     Down();
                 }
-                // resets consoleKey information
+
+                // resets consoleKey information to perform infinite press
                 consoleKey = ConsoleKey.A;
                 // prevents blinking
                 Thread.Sleep(50);
+
                 CheckIfKeyIsPressed();
             }
             consoleKey = ConsoleKey.A;
             Console.Clear();
             return ((temp/10)*10)+index;
         }
+
         protected void Up()
         {
             if (index > 1)
@@ -132,5 +98,82 @@ namespace Game
                 index++;
             }
         }
+
+        private void DisplayStartGameMenuOptionSelected(int xStart, int yStart)
+        {
+            Console.SetCursorPosition(xStart + 22, yStart + 8);
+            Console.Write("             ");
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.SetCursorPosition(xStart + 24, yStart + 8);
+            Console.Write("START GAME");
+            Console.ResetColor();
+        }
+
+        private void DisplayStartGameMenuOptionNotSelected(int xStart, int yStart)
+        {
+            Console.SetCursorPosition(xStart + 22, yStart + 8);
+            Console.Write("             ");
+            Console.SetCursorPosition(xStart + 23, yStart + 8);
+            Console.Write("START GAME");
+        }
+
+        private void DisplayHowToPlayMenuOptionSelected(int xStart, int yStart)
+        {
+            Console.SetCursorPosition(xStart + 22, yStart + 10);
+            Console.Write("             ");
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.SetCursorPosition(xStart + 24, yStart + 10);
+            Console.Write("HOW TO PLAY");
+            Console.ResetColor();
+        }
+
+        private void DisplayHowToPlayMenuOptionNotSelected(int xStart, int yStart)
+        {
+            Console.SetCursorPosition(xStart + 22, yStart + 10);
+            Console.Write("             ");
+            Console.SetCursorPosition(xStart + 23, yStart + 10);
+            Console.Write("HOW TO PLAY");
+        }
+
+        private void DisplaySettingsMenuOptionSelected(int xStart, int yStart)
+        {
+            Console.SetCursorPosition(xStart + 22, yStart + 12);
+            Console.Write("             ");
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.SetCursorPosition(xStart + 24, yStart + 12);
+            Console.Write("SETTINGS");
+            Console.ResetColor();
+        }
+
+        private void DisplaySettingsMenuOptionNotSelected(int xStart, int yStart)
+        {
+            Console.SetCursorPosition(xStart + 22, yStart + 12);
+            Console.Write("             ");
+            Console.SetCursorPosition(xStart + 23, yStart + 12);
+            Console.Write("SETTINGS");
+        }
+
+        private void DisplayQuitMenuOptionSelected(int xStart, int yStart)
+        {
+            Console.SetCursorPosition(xStart + 22, yStart + 14);
+            Console.Write("             ");
+            Console.BackgroundColor = ConsoleColor.Gray;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.SetCursorPosition(xStart + 24, yStart + 14);
+            Console.Write("QUIT");
+            Console.ResetColor();
+        }
+
+        private void DisplayQuitMenuOptionNotSelected(int xStart, int yStart)
+        {
+            Console.SetCursorPosition(xStart + 22, yStart + 14);
+            Console.Write("             ");
+            Console.SetCursorPosition(xStart + 23, yStart + 14);
+            Console.Write("QUIT");
+        }
+
     }
 }
