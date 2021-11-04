@@ -5,26 +5,21 @@ namespace Game
 {
     class MainMenu : ScreenBase
     {
-        // necessary for menu navigation
         protected int index = 1;
         public int Screen(int width, int height,int temp)
         {
-            // necessary for relative content positioning
             int xStart = ((width + 2) - 57) / 2;
             int yStart = ((height + 2) - 18) / 2;
-            // outer frame takes whole space avaliable
             OuterFrameDraw(width, height, '▓');
-            // inner frame is fixed size and it is positioned relatively to outer frame
             InnerFrameDraw(xStart, yStart, '▒');
-            // time-static text instructions
+
             Console.SetCursorPosition(xStart + 9,yStart + 2);
             Console.Write("use: WS or up/down arrow keys to browse");
             Console.SetCursorPosition(xStart + 18,yStart + 4);
             Console.Write("press ENTER to select");
-            // main loop
+
             while (consoleKey != ConsoleKey.Enter)
             {
-                // selection dependant text display
                 #region START GAME
                 if (index == 1)
                 {
@@ -101,10 +96,10 @@ namespace Game
                     Console.Write("QUIT");
                 }
                 #endregion
-                // ascii images 
+
                 ScientistLeftDraw(xStart + 2,yStart + 4);
-                ScientistRightDraw(xStart + 39,yStart + 4);
-                // menu navigation logic
+                ScientistRightDraw(xStart + 39, yStart + 4);
+
                 if (consoleKey == ConsoleKey.UpArrow || consoleKey == ConsoleKey.W)
                 {
                     Up();
